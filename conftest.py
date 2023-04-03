@@ -4,10 +4,6 @@ from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
-    """add option for change browser"""
-    parser.addoption('--browser_name', action='store', default='chrome',
-                     help="Choose browser: chrome or firefox")
-
     """add option for change language"""
     parser.addoption('--language', action='store', default='en',
                      help="Choose language if uphold")
@@ -15,25 +11,17 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="function")
 def browser(request):
-    browser_name = request.config.getoption("browser_name")
-    user_language = request.config.getoption("language")
-    browser = None
-    
-    if browser_name == "chrome":
+    try:
+        user_language = request.config.getoption("language")
         print("\nstart chrome browser for test..")
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
         browser = webdriver.Chrome(options=options)
         browser.implicitly_wait(5)
-    elif browser_name == "firefox":
-        print("\nstart firefox browser for test..")
-        fp = webdriver.FirefoxOptions()
-        fp.set_preference("intl.accept_languages", user_language)
-        browser = webdriver.Firefox(options=fp)
-        browser.implicitly_wait(5)
-    else:
+        yield browser
+    except pytest.UsageError:
         raise pytest.UsageError("--language = [en | fr | ru ...][default=en] --browser_name=[should be chrome | firefox][default=chrome]")
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
+    finally:
+        print("\nquit browser..")
+        browser.quit()
 
