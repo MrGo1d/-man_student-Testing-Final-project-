@@ -1,18 +1,21 @@
 from selenium.webdriver.common.by import By
 
 
+class BasketPageLocators():
+    EMPTY_BASKET_TEXT = (By.ID, 'content_inner')
+    EMPTY_BASKET = (By.CLASS_NAME, 'basket-items')
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, '.btn-group .btn:nth-child(1)')
+
 
 class LoginPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOG_IN_LINK = (By.NAME, 'login_submit')
     REGESTER_LINK = (By.NAME, 'registration_submit')
 
-class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 class ProductPageLocators():
     ADD_GOOD_TO_BASKET_BTN = (By.CSS_SELECTOR, '#add_to_basket_form .btn')

@@ -14,9 +14,17 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+    def go_to_basket_page(self):
+            link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+            link.click()
+            # alert = self.browser.switch_to.alert
+            # alert.accept()
+
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
+        # alert = self.browser.switch_to.alert
+        # alert.accept()
 
     def is_disappeared(self, how, what, timeout=4):
         """method checks that element will disappeare at page in {timeout} time"""
