@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import BasketPageLocators
-from selenium.common.exceptions import NoSuchElementException
 
 
 class BasketPage(BasePage):
@@ -36,7 +35,7 @@ class BasketPage(BasePage):
         language = self.browser.execute_script(
             "return window.navigator.userLanguage || window.navigator.language")
         text = self.LANGUAGES.get(language)
-        assert text in self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT).text, 'Basket doesn\'t contain "Your basket is empty" text'
+        assert text in self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT).text, f'Basket doesn\'t contain "{text}" text'
 
     
 

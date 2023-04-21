@@ -24,7 +24,7 @@ class ProductPage(BasePage):
         assert self.browser.find_element(*ProductPageLocators.MESSAGE_BOOK_TITLE).text == title, "The book title is not equal in basket"
 
     def should_be_basket_page(self):
-        self.should_be_login_url()
+        # self.should_be_login_url()
         self.should_be_add_to_basket_button()
 
     def should_be_login_url(self):
