@@ -6,7 +6,6 @@ class ProductPage(BasePage):
     def add_to_basket_button_click(self):
         add_to_basket_btn = self.browser.find_element(*ProductPageLocators.ADD_GOOD_TO_BASKET_BTN)
         add_to_basket_btn.click()
-        # self.solve_quiz_and_get_code()
 
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_GOOD_TO_BASKET_BTN), "Login form is not presented"
@@ -24,7 +23,6 @@ class ProductPage(BasePage):
         assert self.browser.find_element(*ProductPageLocators.MESSAGE_BOOK_TITLE).text == title, "The book title is not equal in basket"
 
     def should_be_basket_page(self):
-        # self.should_be_login_url()
         self.should_be_add_to_basket_button()
 
     def should_be_login_url(self):

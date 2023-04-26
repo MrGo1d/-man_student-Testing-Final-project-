@@ -15,10 +15,10 @@ class BasePageLocators():
 class LoginPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOG_IN_LINK = (By.NAME, 'login_submit')
+    REGESTER_LINK = (By.NAME, 'registration_submit')
     REGESTER_LOGIN = (By.NAME, 'registration-email')
     REGESTER_PASSWORD = (By.NAME, 'registration-password1')
     REGESTER_PASSWORD_REPEAT = (By.NAME, 'registration-password2')
-    REGESTER_SUBMIT_BUTTON = (By.NAME, 'registration_submit')
 
 
 class ProductPageLocators():

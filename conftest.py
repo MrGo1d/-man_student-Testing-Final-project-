@@ -16,6 +16,9 @@ def browser(request):
         print("\nstart chrome browser for test..")
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
+        # options.add_argument("--no-sandbox")  # if you want open a browser
+        # options.add_argument("--headless")    # commented
+        # options.add_argument("--disable-gpu") # this strings
         browser = webdriver.Chrome(options=options)
         browser.implicitly_wait(5)
         yield browser

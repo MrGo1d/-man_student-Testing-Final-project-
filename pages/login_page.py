@@ -13,7 +13,7 @@ class LoginPage(BasePage):
         user_password.send_keys(password)
         user_password_repeat.send_keys(password)
         
-        self.browser.find_element(*LoginPageLocators.REGESTER_SUBMIT_BUTTON).click()
+        self.browser.find_element(*LoginPageLocators.REGESTER_LINK).click()
 
     def should_be_login_form(self):
         assert self.is_element_present(*LoginPageLocators.LOG_IN_LINK), "Login form is not presented"
