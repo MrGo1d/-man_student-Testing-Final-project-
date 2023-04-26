@@ -27,4 +27,3 @@ def browser(request):
     finally:
         print("\nquit browser..")
         browser.quit()
-

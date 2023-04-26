@@ -15,18 +15,15 @@ class TestUserAddToBasketFromProductPage:
         page = LoginPage(browser, link)
         email = str(time.time()) + "@testmail.com"
         password = '1qaz@WSX3edc'
-
         page.open()
         page.go_to_login_page()
         page.register_new_user(email, password)
         page.should_be_authorized_user()      
 
-
     def test_user_cant_see_success_message(self, browser, link=PRODUCT_LINK):
         page = ProductPage(browser, link)
         page.open()
         page.should_not_be_success_message()
-
 
     def test_user_can_add_product_to_basket(self, browser, link=PRODUCT_LINK):
         page = ProductPage(browser, link)
@@ -35,7 +32,6 @@ class TestUserAddToBasketFromProductPage:
         page.add_to_basket_button_click()
         page.should_be_added_correct_title()
         page.should_be_added_correct_price()
-
 
 
 @pytest.mark.add_to_basket_and_get_promo
@@ -74,12 +70,10 @@ class TestGuestMessagesAddingProductToBasket:
         page.add_to_basket_button_click()
         page.should_not_be_success_message()
 
-
     def test_guest_cant_see_success_message(self, browser, link=LINK):
         page = ProductPage(browser, link)
         page.open()
         page.should_not_be_success_message()
-
 
     @pytest.mark.xfail 
     def test_message_disappeared_after_adding_product_to_basket(self, browser, link=LINK):
@@ -97,13 +91,11 @@ class TestGuestInteractionLoginAndBasket:
         page = ProductPage(browser, link)
         page.open()
         page.should_be_login_link()
-        
 
     def test_guest_can_go_to_login_page_from_product_page(self, browser, link=LINK):
         page = ProductPage(browser, link)
         page.open()
         page.go_to_login_page()
-
 
     def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser, link=LINK):
         page = BasketPage(browser, link)
@@ -111,7 +103,3 @@ class TestGuestInteractionLoginAndBasket:
         page.go_to_basket_page()
         page.basket_should_be_empty()
         page.empty_basket_should_contain_text()
-
-
-
- 

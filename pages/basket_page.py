@@ -28,14 +28,12 @@ class BasketPage(BasePage):
     }
 
     def basket_should_be_empty(self):
+        """method checks if the cart is empty"""
         assert self.is_not_element_present(*BasketPageLocators.EMPTY_BASKET), 'Basket is not emty, but should be empty'
 
-
     def empty_basket_should_contain_text(self):
+        """method checks if the cart contains text"""
         language = self.browser.execute_script(
             "return window.navigator.userLanguage || window.navigator.language")
         text = self.LANGUAGES.get(language)
         assert text in self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT).text, f'Basket doesn\'t contain "{text}" text'
-
-    
-

@@ -5,6 +5,7 @@ class BasketPageLocators():
     EMPTY_BASKET_TEXT = (By.ID, 'content_inner')
     EMPTY_BASKET = (By.CLASS_NAME, 'basket-items')
 
+
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
@@ -29,4 +30,3 @@ class ProductPageLocators():
     MESSAGE_BOOK_PRICE = (By.CSS_SELECTOR, '#messages .alert:nth-child(3) .alertinner strong') 
     BASKET_MINI_PRICE = (By.CLASS_NAME, 'basket-mini')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages .alert:nth-child(1) .alertinner strong')
-
